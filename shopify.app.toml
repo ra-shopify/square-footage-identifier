@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "602ae701cdf954f7e0716e0f469bd6dc"
+name = "square-footage-identifier"
+handle = "square-footage-identifier"
+application_url = "https://heath-diamond-breath-bass.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "racreateapp.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://heath-diamond-breath-bass.trycloudflare.com/auth/callback",
+  "https://heath-diamond-breath-bass.trycloudflare.com/auth/shopify/callback",
+  "https://heath-diamond-breath-bass.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
